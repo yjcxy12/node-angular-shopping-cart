@@ -1,0 +1,9 @@
+# Npm related
+.npm-cache
+node_modules
+npm-debug*
+.DS_Store
+
+# Build folders
+build
+dist

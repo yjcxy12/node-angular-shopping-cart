@@ -1,0 +1,6 @@
+{
+  "extends": "sis",
+  "rules": {
+    "react/jsx-boolean-value": 0
+  }
+}
