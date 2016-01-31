@@ -16,13 +16,9 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
 app.set('views', path.join(__dirname, '../views'));
-console.log(path.join(__dirname, '../public'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
-app.use(express.static(path.join(__dirname, '../public')));
-
-app.use('/', routes);
 
 if (isDeveloping) {
   const compiler = webpack(config);
@@ -43,17 +39,17 @@ if (isDeveloping) {
 
   app.use(logger('dev'));
 
-  app.use((req, res, next) => {
-    const err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-  });
+  app.use('/', routes);
 } else {
-  app.use(express.static(path.join(__dirname, '/dist')));
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist/index.html'));
-  });
+  app.use(express.static(path.join(__dirname, '../public')));
+  app.use('/', routes);
 }
+
+app.use((req, res, next) => {
+  const err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
 
 app.listen(port, (err) => {
   if (err) {
