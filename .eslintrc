@@ -1,6 +1,11 @@
 {
-  "extends": "sis",
+  "extends": "airbnb",
   "rules": {
-    "react/jsx-boolean-value": 0
+    "comma-dangle": [2, "never"],
+    "indent": [2, 2, {"SwitchCase": 1}],
+    "no-plusplus": [2, {"allowForLoopAfterthoughts": true}],
+    "no-this-before-super": 2,
+    "prefer-const": 1,
+    "arrow-body-style": 0
   }
 }

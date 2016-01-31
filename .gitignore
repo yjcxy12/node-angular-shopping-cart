@@ -7,3 +7,5 @@ npm-debug*
 # Build folders
 build
 dist
+
+mock

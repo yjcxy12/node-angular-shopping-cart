@@ -1,0 +1,21 @@
+<div class="checkout--contianer">
+  <div class="checkout--form">
+    <div class="checkout--form--row">
+      <label>First Name</label>
+      <input type="text" ng-model="vm.formData.firstName"/>
+    </div>
+    <div class="checkout--form--row">
+      <label>Last Name</label>
+      <input type="text" ng-model="vm.formData.lastName"/>
+    </div>
+    <div class="checkout--form--row">
+      <label>Account Number</label>
+      <input type="number" ng-model="vm.formData.accountNumber"/>
+    </div>
+    <div class="checkout--form--row">
+      <label>Sort Code</label>
+      <input type="text" ng-model="vm.formData.sortCode"/>
+    </div>
+    <div class="checkout--form--submit" ng-click="vm.submit(vm.formData)">Submit</div>
+  </div>
+</div>

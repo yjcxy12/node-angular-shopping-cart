@@ -1,0 +1,11 @@
+<div class="item-info--container">
+  <div class="item-info">
+    <div class="item-info--image--container"><img class="item-info--image" ng-src="{{vm.item.image}}"/></div>
+    <div class="item-info--item--container">
+      <div class="item-info--name"><strong>Name: </strong>{{ vm.item.productName }}</div>
+      <div class="item-info--department"><strong>Department: </strong>{{ vm.item.department }}</div>
+      <div class="item-info--price"><strong>Price: </strong>£{{ vm.item.price }}</div>
+      <div class="item-info--add-button" ng-click="vm.addItemToCart(vm.item)">Add to Cart</div>
+    </div>
+  </div>
+</div>

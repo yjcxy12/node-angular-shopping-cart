@@ -1,0 +1,19 @@
+<div class="department-list--container">
+  <div><strong>Department</strong></div>
+  <ul class="department-list--list">
+    <li class="department-list--item" ng-repeat="department in vm.departmentList track by department">
+      <input type="checkbox" ng-click="vm.toggleSelectedDepartment(department)"/>
+      {{ department }}
+    </li>
+  </ul>
+</div>
+
+<ul class="item-list">
+  <li class="item-list--item" ng-repeat="item in vm.itemList | filter:vm.filterItemsByDepartment track by item.id">
+    <a ng-click="vm.directToInfoView(item.id)"><img class="item-list--item--image" ng-src="{{item.image}}"/></a>
+    <div class="item-list--item--name"><strong>Name: </strong>{{ item.productName }}</div>
+    <div class="item-list--item--department"><strong>Department: </strong>{{ item.department }}</div>
+    <div class="item-list--item--price"><strong>Price: </strong>£{{ item.price }}</div>
+    <div class="item-list--item--add-button" ng-click="vm.addItemToCart(item)">Add to Cart</div>
+  </li>
+</ul>

@@ -1,0 +1,18 @@
+<div class="shopping-item--container" ui-view></div>
+
+<div class="shopping-cart">
+  <div class="shopping-cart--title"><strong>Shopping Cart</strong></div>
+  <ul class="shopping-cart--list">
+    <li class="shopping-cart--item" ng-repeat="cartItem in vm.cartItemList track by cartItem.id">
+      <span class="shopping-cart--item--name" ui-sref=".info({itemId: cartItem.id})">
+        <strong>{{ cartItem.productName }}</strong>
+      </span>
+      <span class="shopping-cart--item--price">£{{ cartItem.price }}</span>
+      <span class="shopping-cart--item--quantity">x{{ cartItem.quantity }}</span>
+      <div class="shoping-cart--item--remove-button" ng-click="vm.removeItemFromCart(cartItem.id)">X</div>
+    </li>
+  </ul>
+  <div class="shopping-cart--total-price">
+    <strong>Total: </strong>£{{ vm.cartTotalPrice }}
+  </div>
+</div>

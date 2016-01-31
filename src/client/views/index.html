@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Shopping Cart App</title>
+</head>
+<body>
+  <div class="app" ng-app="shoppingCart">
+    <div class="nav-bar">
+      <ul class="nav-bar--menu-list">
+        <li class="nav-bar--menu-item" ui-sref="home">Home</li>
+        <li class="nav-bar--menu-item" ui-sref="items.list">Shopping</li>
+        <li class="nav-bar--menu-item" ui-sref="checkout">Checkout</li>
+      </ul>
+    </div>
+    <div class="main-display" ui-view></div>
+  </div>
+    
+</body>
+</html>

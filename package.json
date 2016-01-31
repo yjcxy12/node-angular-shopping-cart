@@ -4,7 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "_mocha test/**/*-tests.js -r babel-core/register",
+    "test:watch": "npm test -- --watch",
+    "lint": "node_modules/eslint/bin/eslint.js .",
+    "mock:init": "node ./scripts/initMockData.js",
+    "build:views": "cp -r src/client/views dist/views",
+    "build:server": "babel src/server --out-dir dist/server",
+    "build:client:min": "webpack --config webpack.config.production.js --progress --colors",
+    "preserve:dev": "rimraf dist && npm run build:server && npm run build:views",
+    "serve:dev": "NODE_ENV=development node ./dist/server/index.js -- -d",
+    "preserve:production": "rimraf dist && npm run build:server && npm run build:views && npm run build:client:min",
+    "serve:production": "NODE_ENV=production PORT=8080 node ./dist/server/index.js"
   },
   "author": "yjcxy12 <yjcxy12@gmail.com>",
   "license": "MIT",
@@ -16,15 +26,26 @@
     "css-loader": "^0.23.1",
     "eslint": "^1.10.3",
     "eslint-config-airbnb": "^4.0.0",
+    "eslint-plugin-react": "^3.16.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.7.2",
     "istanbul": "^0.4.2",
     "mocha": "^2.4.5",
     "node-sass": "^3.4.2",
-    "react-hot-loader": "^1.3.0",
+    "rimraf": "^2.5.1",
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.12",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-middleware": "^1.5.1",
+    "webpack-hot-middleware": "^2.6.4"
+  },
+  "dependencies": {
+    "angular": "^1.4.9",
+    "angular-ui-router": "^0.2.17",
+    "body-parser": "^1.14.2",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "faker": "^3.0.1",
+    "morgan": "^1.6.1"
   }
 }
