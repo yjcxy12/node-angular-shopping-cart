@@ -8,7 +8,7 @@
     "test": "_mocha tests/**/*-tests.js -r babel-core/register",
     "test:watch": "npm test -- --watch",
     "lint": "node_modules/eslint/bin/eslint.js .",
-    "mock:init": "node ./scripts/initMockData.js",
+    "mock:init": "rm -rf mock && mkdir mock && node ./scripts/initMockData.js",
     "build:views": "cp -r src/client/views dist/views",
     "build:server": "babel src/server --out-dir dist/server",
     "build:client:min": "webpack --config webpack.config.production.js --progress --colors",
