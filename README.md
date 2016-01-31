@@ -1,5 +1,7 @@
 # node-angular-shopping-cart
 
+
+[Demo Page](http://yjcxy12.github.io/node-angular-shopping-cart/)
 ### Install package
 
 - Fork and clone the repository using git clone
